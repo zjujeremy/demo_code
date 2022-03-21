@@ -5,7 +5,7 @@ import requests
 from openpyxl import Workbook
 from openpyxl.drawing.image import Image
 import os
-import cv2
+# import cv2
 import argparse
 
 dirname, filename = os.path.split(os.path.abspath( __file__))
@@ -38,9 +38,9 @@ def write_excel(excel_data, args):
         row = 'A' + str(j + 1)
         worksheet1.write_row(row, insertData)
         worksheet1.set_row(int(j), int(args.size))
-        img = cv2.imread(image_path)
-        x = float(int(args.size) / img.shape[0])
-        worksheet1.insert_image(args.image + str(j + 1), image_path, {'x_scale': x, 'y_scale': x})
+#         img = cv2.imread(image_path)
+#         x = float(int(args.size) / img.shape[0])
+        worksheet1.insert_image(args.image + str(j + 1), image_path, {'x_scale': 0.5, 'y_scale': 0.5})
     workbook.close()
 
 def save_img(url):
